@@ -1,10 +1,17 @@
 import os
 import shutil
+from tkinter import Tk, filedialog
 
-# Define folder where your files are
-folder = "C:\Users\hp\Downloads"
+# Open a folder selection dialog
+root = Tk()
+root.withdraw()  # Hide the main window
+folder = filedialog.askdirectory(title="Select the folder to organize")
 
-# Create subfolders
+if not folder:
+    print("No folder selected. Exiting.")
+    exit()
+
+# Define file type categories
 file_types = {
     "Images": [".jpg", ".jpeg", ".png"],
     "Videos": [".mp4", ".mov", ".avi"],
@@ -12,6 +19,7 @@ file_types = {
     "Archives": [".zip", ".rar"]
 }
 
+# Loop through files and move them to corresponding folders
 for filename in os.listdir(folder):
     filepath = os.path.join(folder, filename)
     if os.path.isfile(filepath):
@@ -22,3 +30,5 @@ for filename in os.listdir(folder):
                 os.makedirs(target_folder, exist_ok=True)
                 shutil.move(filepath, os.path.join(target_folder, filename))
                 break
+
+print("Files organized successfully!")
