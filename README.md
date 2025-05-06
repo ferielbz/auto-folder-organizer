@@ -22,6 +22,18 @@ Now with an interactive folder picker! No need to change paths in the code.
 1. Clone or download this repository:
    ```bash
    git clone https://github.com/ferielbz/auto-folder-organizer.git
+## 🖼 GUI Version (With Tkinter)
+If you prefer a simple graphical interface, you can run the organizer_gui.py script instead:
+  
+    python organizer_gui.py
+    
+## Features:
+
+Browse and select the folder with a click.
+
+One-click file organization.
+
+Friendly notifications for completion or errors.
    
 ## Run the script:
     python main.py
